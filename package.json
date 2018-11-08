@@ -1,0 +1,25 @@
+{
+    "name": "lineate-exchanger",
+    "version": "0.0.1",
+    "description": "Exchanger",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Renkoru/lineate-exchanger.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Renkoru/lineate-exchanger/issues"
+    },
+    "homepage": "https://github.com/Renkoru/lineate-exchanger#readme",
+    "dependencies": {
+        "koa": "^2.6.1"
+    },
+    "engines": {
+        "node": "8.1.2"
+    }
+}
