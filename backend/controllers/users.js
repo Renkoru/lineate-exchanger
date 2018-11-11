@@ -22,9 +22,17 @@ module.exports = {
     },
     getAll: async (ctx) => {
         const users = await ctx.db.models.User.findAll();
-        ctx.body = {
-            users
-        };
+        ctx.body = users.map(({
+            id,
+            name,
+            email,
+            imageUrl,
+        }) => ({
+            id,
+            name,
+            email,
+            imageUrl,
+        }));
     },
     create: async (ctx) => {
         console.log(`Create user: ${ctx.request.body.email}`);

@@ -1,21 +1,13 @@
 module.exports = function(Sequelize, sequelize) {
-    return sequelize.define('user', {
+    return sequelize.define('collection', {
         id: {
             type: Sequelize.INTEGER,
+            primaryKey: true,
             autoIncrement: true,
         },
         name: Sequelize.STRING,
-        email: {
-            type: Sequelize.STRING,
-            primaryKey: true,
-        },
-        hashedPassword: Sequelize.STRING,
-        googleId: {
-            type: Sequelize.STRING,
-        },
+        description: Sequelize.STRING,
         imageUrl: Sequelize.STRING,
-        createdAt: Sequelize.DATE,
-        updatedAt: Sequelize.DATE,
     }, {
         schema: 'exchange',
         classMethods: {},
