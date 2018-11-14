@@ -1,8 +1,14 @@
 module.exports = {
     getAllItems: async (ctx) => {
+        const harryCollection = await ctx.db.models.Collection.findOne({
+            where: {
+                name: 'Lenta Harry Potter 2018',
+            }
+        });
+
         const items = await ctx.db.models.CollectionItem.findAll({
             where: {
-                collectionId: 2,
+                collectionId: harryCollection.id,
             }
         });
         ctx.body = items.map(({

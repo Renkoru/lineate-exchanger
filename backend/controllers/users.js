@@ -27,12 +27,14 @@ module.exports = {
             name,
             email,
             imageUrl,
-        }) => ({
-            id,
-            name,
-            email,
-            imageUrl,
-        }));
+        }) => {
+            return {
+                id,
+                name,
+                email,
+                imageUrl,
+            };
+        });
     },
     create: async (ctx) => {
         console.log(`Create user: ${ctx.request.body.email}`);
@@ -42,16 +44,22 @@ module.exports = {
         ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
     },
     allItems: async (ctx) => {
-        const users = await ctx.db.models.UserCollectionItem.findAll();
-        ctx.body = users.map(({
+        const usersCollectionItems = await ctx.db.models.UserCollectionItem.findAll();
+        const collectionItems = await ctx.db.models.CollectionItem.findAll();
+
+        ctx.body = usersCollectionItems.map(({
             id,
-            userEmail,
+            userId,
             collectionItemId,
-        }) => ({
-            id,
-            userEmail,
-            collectionItemId,
-        }));
+        }) => {
+            const item = collectionItems.filter(({ id }) => (id === collectionItemId))[0];
+
+            return {
+                id,
+                userId,
+                item,
+            };
+        });
     },
     addItem: async (ctx, next) => {
         console.log('Create item');
@@ -63,7 +71,7 @@ module.exports = {
         }
 
         const newUserItem = await ctx.db.models.UserCollectionItem.create({
-            userEmail: ctx.req.user.email,
+            userId: ctx.req.user.id,
             collectionItemId: ctx.request.body.itemId,
         });
 
@@ -80,10 +88,10 @@ module.exports = {
         }
 
         const itemId = ctx.params.id;
-        const userEmail = ctx.req.user.email;
+        const userId = ctx.req.user.id;
         const itemToDelte  = await ctx.db.models.UserCollectionItem.findByPk(itemId);
 
-        if (itemToDelte.userEmail !== userEmail) {
+        if (itemToDelte.userId !== userId) {
             ctx.status = 404;
             next();
             return;

@@ -14,8 +14,11 @@ apiRouter.use('/collections/2', collectionItems.routes(), collectionItems.allowe
 
 mainRouter
     .use('/api/v1', apiRouter.routes())
-    .get('/auth/logout', ctx => ctx.logout())
-    .get('/auth/google', passport.authenticate('google', { scope: ['profile'] }))
+    .get('/auth/logout', (ctx) => {
+        ctx.logout();
+        ctx.redirect('/');
+    })
+    .get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }))
     .get('/auth/google/callback',
          passport.authenticate('google', { failureRedirect: '/NOACC' }),
          function(ctx, res) {

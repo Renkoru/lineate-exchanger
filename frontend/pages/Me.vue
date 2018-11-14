@@ -3,14 +3,14 @@
     <div>
         <h2>My items to exchange:</h2>
         <items-list
-            :items="ownItems"
-            itemPk="userOwnId"
+            :items="userItems"
+            itemPk="id"
             :itemActions="[removeAction]"
             v-on:item-action="onItemAction"
             />
     </div>
     <div :class="$style.allItemsWrapper">
-        <h2>All Items:</h2>
+        <h2>Collection Items:</h2>
         <items-list
             :items="collectionItems"
             itemPk="id"
@@ -41,16 +41,16 @@ export default {
     },
 
     computed: {
-        ownItems() {
-            const ownItemsMapping = this.userItems.reduce((memo, { collectionItemId, id }) => {
-                memo[collectionItemId] = id;
-                return memo;
-            }, {});
+        // ownItems() {
+        //     const ownItemsMapping = this.userItems.reduce((memo, { collectionItemId, id }) => {
+        //         memo[collectionItemId] = id;
+        //         return memo;
+        //     }, {});
 
-            return this.collectionItems
-                .filter(({ id }) => Object.keys(ownItemsMapping).indexOf(`${id}`) !== -1)
-                .map(collectionItem => ({...collectionItem, userOwnId: ownItemsMapping[collectionItem.id] }));
-        }
+        //     return this.collectionItems
+        //         .filter(({ id }) => Object.keys(ownItemsMapping).indexOf(`${id}`) !== -1)
+        //         .map(collectionItem => ({...collectionItem, userOwnId: ownItemsMapping[collectionItem.id] }));
+        // }
     },
 
     created () {

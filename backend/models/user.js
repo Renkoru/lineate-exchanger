@@ -2,12 +2,12 @@ module.exports = function(Sequelize, sequelize) {
     return sequelize.define('user', {
         id: {
             type: Sequelize.INTEGER,
+            primaryKey: true,
             autoIncrement: true,
         },
         name: Sequelize.STRING,
         email: {
             type: Sequelize.STRING,
-            primaryKey: true,
         },
         hashedPassword: Sequelize.STRING,
         googleId: {

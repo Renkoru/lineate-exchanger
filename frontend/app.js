@@ -9,6 +9,7 @@ import App from './App.vue';
 const routes = [
     { path: '/users', component: Users },
     { path: '/me', component: Me },
+    { path: '/', redirect: '/users' }
 ];
 
 

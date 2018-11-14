@@ -25,6 +25,8 @@ export default (passport, dbUser) => {
             callbackURL: "http://localhost:3000/auth/google/callback"
         },
         function(accessToken, refreshToken, profile, done) {
+            console.log('Add profile', profile);
+
             dbUser
                 .findOrCreate({
                     where: { googleId: profile.id },
