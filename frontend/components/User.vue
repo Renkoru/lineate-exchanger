@@ -1,7 +1,7 @@
 <template>
-<div>
-    <div>{{ user.name }}</div>
-    <img alt="" :src="user.imageUrl">
+<div :class="$style.root">
+    <img :class="$style.image" alt="User Picture" :src="user.imageUrl">
+    <div :class="$style.username">{{ user.name }}</div>
 </div>
 </template>
 
@@ -14,3 +14,20 @@ export default {
     ],
 }
 </script>
+
+<style module>
+.root {
+  display: flex;
+  margin-right: 10px;
+}
+
+.username {
+  padding: 2px 5px;
+}
+
+.image {
+  width: 20px;
+  height: 20px;
+  border-radius: 100px;
+}
+</style>

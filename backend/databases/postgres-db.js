@@ -55,7 +55,7 @@ const initDB = async () => {
     CollectionItem.belongsToMany(User, { through: UserCollectionItem });
 
     // Sync all models that aren't already in the database
-    sequelize.sync();
+    // sequelize.sync();
     // sequelize.sync({ force: true });
 
     console.log('Database init Finish');

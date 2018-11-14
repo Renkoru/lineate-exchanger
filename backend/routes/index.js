@@ -1,7 +1,8 @@
 import passport from 'koa-passport';
-const Router = require('koa-router');
+import Router from 'koa-router';
 
-const users = require('./users');
+import users from './users';
+import collectionItems from './collectionItems';
 
 
 const mainRouter = new Router();
@@ -9,6 +10,7 @@ const apiRouter = new Router();
 
 
 apiRouter.use('/users', users.routes(), users.allowedMethods());
+apiRouter.use('/collections/2', collectionItems.routes(), collectionItems.allowedMethods());
 
 mainRouter
     .use('/api/v1', apiRouter.routes())
