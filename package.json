@@ -4,11 +4,12 @@
     "description": "Exchanger",
     "main": "index.js",
     "scripts": {
-        "prod": "babel-node --presets env,stage-2 ./backend/server.js",
+        "prod": "babel-node ./backend/server.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack --config ./webpack.config.dev.js",
         "watch": "webpack --watch --config ./webpack.config.dev.js",
-        "dev": "nodemon"
+        "dev": "nodemon",
+        "heroku-postbuild": "npm install"
     },
     "repository": {
         "type": "git",
