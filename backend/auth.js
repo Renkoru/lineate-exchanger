@@ -22,7 +22,7 @@ export default (passport, dbUser) => {
         {
             clientID: "1083531367303-veqe0a82b1sqjgoatp2dtvalrl6oeao5.apps.googleusercontent.com",
             clientSecret: 'V1q3JkIDonGpzhvxUZOd77h4',
-            callbackURL: "http://localhost:3000/auth/google/callback"
+            callbackURL: process.env.GOOGLE_AUTH_CALLBACK
         },
         function(accessToken, refreshToken, profile, done) {
             console.log('Add profile', profile);
