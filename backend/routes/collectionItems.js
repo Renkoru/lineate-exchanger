@@ -1,13 +1,13 @@
 import Router from 'koa-router';
 
-import { CollectionItems } from '../controllers';
+import { collectionItems } from '../controllers';
 
 
 const router = new Router();
 
 
 router
-    .get('/items', CollectionItems.getAllItems);
+    .get('/items', collectionItems.getAllItems);
 
 
-module.exports = router;
+export default router;

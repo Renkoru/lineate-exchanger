@@ -1,10 +1,10 @@
-const Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
-const User = require('../models/user');
-const Collection = require('../models/collection');
-const UserCollection = require('../models/userCollection');
-const CollectionItem = require('../models/collectionItem');
-const UserCollectionItem = require('../models/userCollectionItem');
+import User from '../models/user';
+import Collection from '../models/collection';
+import UserCollection from '../models/userCollection';
+import CollectionItem from '../models/collectionItem';
+import UserCollectionItem from '../models/userCollectionItem';
 
 // const databaseURL = process.env.DATABASE_URL
 //     || 'postgres://czyyluow:DktaL7ow7p36cKK_muCkrRBQjnwC-njl@manny.db.elephantsql.com:5432/czyyluow';
@@ -62,7 +62,7 @@ const initDB = async () => {
 };
 
 
-module.exports = {
+export default {
     initDB,
     models,
 };

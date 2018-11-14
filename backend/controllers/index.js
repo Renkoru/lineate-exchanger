@@ -1,8 +1,6 @@
-const Users = require('./users');
-const CollectionItems = require('./collectionItems');
+import Users from './users';
+import CollectionItems from './collectionItems';
 
 
-module.exports = {
-    Users,
-    CollectionItems,
-};
+export const users = Users;
+export const collectionItems = CollectionItems;

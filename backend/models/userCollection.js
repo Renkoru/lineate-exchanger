@@ -1,4 +1,4 @@
-module.exports = function(Sequelize, sequelize) {
+export default function(Sequelize, sequelize) {
     return sequelize.define('userCollection', {
         id: {
             type: Sequelize.INTEGER,

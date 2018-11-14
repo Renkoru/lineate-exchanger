@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     me: async (ctx, next) => {
         if (!ctx.req.user) {
             ctx.status = 404;

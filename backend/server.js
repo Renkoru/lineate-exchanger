@@ -19,6 +19,7 @@ const staticDir = path.join(__dirname, '..', 'frontend', 'dist');
 
 
 const bootstrap = async () => {
+    console.log(`Dirname ${__dirname}`);
     console.log(`Bootstarping server on port: ${port}, static dir: ${staticDir}`);
     // Initialize the database
     await db.initDB();

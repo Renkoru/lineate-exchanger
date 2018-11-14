@@ -30,4 +30,4 @@ mainRouter
         );
 
 
-module.exports = mainRouter;
+export default mainRouter;

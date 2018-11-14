@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     getAllItems: async (ctx) => {
         const harryCollection = await ctx.db.models.Collection.findOne({
             where: {

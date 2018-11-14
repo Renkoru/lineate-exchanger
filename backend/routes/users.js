@@ -1,18 +1,18 @@
-const Router = require('koa-router');
+import Router from 'koa-router';
 
-const { Users } = require('../controllers');
+import { users } from '../controllers';
 
 
 const router = new Router();
 
 
 router
-    .get('/me', Users.me)
-    .get('/items', Users.allItems)
-    .post('/items', Users.addItem)
-    .del('/items/:id', Users.removeItem)
-    .get('/', Users.getAll)
-    .post('/', Users.create);
+    .get('/me', users.me)
+    .get('/items', users.allItems)
+    .post('/items', users.addItem)
+    .del('/items/:id', users.removeItem)
+    .get('/', users.getAll)
+    .post('/', users.create);
 
 
-module.exports = router;
+export default router;
