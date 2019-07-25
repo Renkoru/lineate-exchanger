@@ -3,11 +3,7 @@ require('dotenv/config');
 
 module.exports = {
     development: {
-        username: process.env.CI_DB_USERNAME,
-        password: process.env.CI_DB_PASSWORD,
-        database: process.env.CI_DB_NAME,
-        host: process.env.CI_DB_HOST,
-        port: process.env.CI_DB_PORT,
+        url: 'postgres://lijcuyhyqcadta:0ee6da5a063960f4f5c26abf0ef4471d41e7e8fe85287c59cb4459a0863a4641@ec2-54-246-84-200.eu-west-1.compute.amazonaws.com:5432/da9nhf9g53u296',
         dialect: 'postgres',
         dialectOptions: {
             ssl: true

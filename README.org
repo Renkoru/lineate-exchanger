@@ -1,0 +1,12 @@
+
+
+Select all tables
+SELECT * FROM pg_catalog.pg_tables;
+
+
+
+SET search_path TO exchange;
+
+
+npx sequelize db:seed:all
+npx sequelize db:migrate
